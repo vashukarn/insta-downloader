@@ -1,4 +1,4 @@
-# tiktok-dl
+# insta-downloader
 
 [![N|Solid](https://vashukarn.github.io/top-logo.png)](https://vashukarn.github.io/)
 
