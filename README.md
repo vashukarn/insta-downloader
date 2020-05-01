@@ -8,7 +8,7 @@
 
 A Python automated script that download all instagram photos of a particular user at once. As we know that web scraping doesn't work with BeautifulSoup for Dynamic pages in which that code go on updating.
 So, I used the selenium web browser to scrape images from Instagram.
-
+<br>[Youtube Link](https://www.youtube.com/watch?v=odnGLaj5d1g)
 ## Prerequisites
 
 These should run without any error: <br>
@@ -76,5 +76,3 @@ chrome_options.add_argument('--disable-gpu')
 #### MIT
 
 **Free Software, Hell Yeah!**
-
-[Youtube Link](https://www.youtube.com/watch?v=odnGLaj5d1g)
