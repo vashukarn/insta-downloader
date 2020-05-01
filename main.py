@@ -7,7 +7,7 @@ import urllib.request
 # Scrolling to the bottom
 
 
-def scroll(SCROLL_PAUSE_TIME):
+def scroll(SCROLL_PAUSE_TIME, WAIT):
     print('Started Scrolling..')
     last_height = driver.execute_script("return document.body.scrollHeight")
     while True:
@@ -18,6 +18,7 @@ def scroll(SCROLL_PAUSE_TIME):
         if new_height == last_height:
             break
         last_height = new_height
+    sleep(WAIT)
     print('Reached to the end of page')
 
 
@@ -26,13 +27,17 @@ chrome_options = Options()
 # chrome_options.add_argument('--headless')
 # chrome_options.add_argument('--disable-gpu')
 driver = webdriver.Chrome(chrome_options=chrome_options)
-# driver.minimize_window()
+driver.minimize_window()
+
 # Enter tiktok username here
 username = str(input('Enter instagram username : '))
-
-
+driver.maximize_window()
 driver.get('https://www.instagram.com/' + username + '/')
-scroll(1)
+
+# Increase wait if chrome couldn't scroll to the bottom of the page
+wait = 5
+
+scroll(1, wait)
 posts = []
 links = driver.find_elements_by_tag_name('img')
 for link in links:
@@ -43,10 +48,10 @@ for link in links:
 posts.pop()
 
 # closing webdriver
+sleep(10)
 driver.quit()
 
-print("Links are here \n links Start :: \n")
 for i in range(len(posts)):
     sleep(2)
-    urllib.request.urlretrieve(posts[i], 'media' + str(i) + '.jpg')
+    urllib.request.urlretrieve(posts[i], 'media' + str(i+1) + '.jpg')
     print('Media' + str(i) + '.jpg downloaded.')
