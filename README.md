@@ -13,7 +13,10 @@ So, I used the selenium web browser to scrape images from Instagram.
 
 These should run without any error: <br>
 
-- Selenium Module should be installed <br>
+- All modules according to requirements <br>
+```
+pip install -r requirements.txt
+```
 - Chrome webdriver should be installed <br>
 - Path of Chrome Browser should be added to PATH <br>
 
